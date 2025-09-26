@@ -484,6 +484,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1646970439}
   - component: {fileID: 1646970440}
+  - component: {fileID: 1646970441}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -561,6 +562,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1646970441
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646970438}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cd74e08a6a4e85642b799685d710b5e3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1813728068
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,6 +730,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2023056411}
   playerInput: {fileID: 2023056414}
+  anim: {fileID: 1646970441}
   speed: 5
   jumpForce: 20
   jumpCutMultiplier: 0.5
