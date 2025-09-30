@@ -5812,11 +5812,12 @@ MonoBehaviour:
   rb: {fileID: 2023056411}
   playerInput: {fileID: 2023056414}
   anim: {fileID: 1646970441}
-  speed: 5
+  walkSpeed: 5
+  runSpeed: 8
   jumpForce: 20
   jumpCutMultiplier: 0.5
   normalGraviry: 6
-  fallGravity: 12
+  fallGravity: 9
   jumpGravity: 4
   facingDirection: 1
   moveInput: {x: 0, y: 0}

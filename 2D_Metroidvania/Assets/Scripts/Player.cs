@@ -9,7 +9,8 @@ public class Player : MonoBehaviour
     public Animator anim;
 
     [Header("Movement Variables")]
-    public float speed;
+    public float walkSpeed;
+    public float runSpeed;
     public float jumpForce;
     public float jumpCutMultiplier = 0.5f;
     public float normalGraviry;
@@ -19,6 +20,7 @@ public class Player : MonoBehaviour
     public int facingDirection = 1;
 
     public Vector2 moveInput;
+    private bool runPressed;
     private bool jumpPressed;
     private bool jumpReleased;
 
@@ -49,7 +51,8 @@ public class Player : MonoBehaviour
 
     private void HandleMovement()
     {
-        float targetSpeed = moveInput.x * speed;
+        float currentSpeed = runPressed ? runSpeed : walkSpeed;
+        float targetSpeed = moveInput.x * currentSpeed;
         rb.linearVelocity = new Vector2(targetSpeed, rb.linearVelocity.y);
     }
 
@@ -99,8 +102,11 @@ public class Player : MonoBehaviour
 
         anim.SetFloat("yVelocity", rb.linearVelocity.y);
 
-        anim.SetBool("isIdle", Mathf.Abs(moveInput.x) < 0.1f && isGrounded);
-        anim.SetBool("isWalk", Mathf.Abs(moveInput.x) > 0.1f && isGrounded);
+        bool isMoving = Mathf.Abs(moveInput.x) > 0.1 && isGrounded;
+
+        anim.SetBool("isIdle", !isMoving && isGrounded);
+        anim.SetBool("isWalk", isMoving && !runPressed);
+        anim.SetBool("isRunning", isMoving && runPressed);
     }
 
     private void Flip()
@@ -119,6 +125,11 @@ public class Player : MonoBehaviour
     public void OnMove (InputValue value)
     {
         moveInput = value.Get<Vector2>();
+    }
+
+    public void OnRun (InputValue value)
+    {
+        runPressed = value.isPressed;
     }
 
     public void OnJump(InputValue value)
