@@ -3,6 +3,14 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    public PlayerState currentState;
+
+    public PlayerIdleState idleState;
+    public PlayerJumpState jumpState;
+    public PlayerMoveState moveState;
+    public PlayerCrouchState crouchState;
+    public PlayerSlideState slideState;
+
     [Header("Components")]
     public Rigidbody2D rb;
     public PlayerInput playerInput;
@@ -14,22 +22,22 @@ public class Player : MonoBehaviour
     public float runSpeed;
     public float jumpForce;
     public float jumpCutMultiplier = 0.5f;
-    public float normalGraviry;
+    public float normalGravity;
     public float fallGravity;
     public float jumpGravity;
 
     public int facingDirection = 1;
 
     public Vector2 moveInput;
-    private bool runPressed;
-    private bool jumpPressed;
-    private bool jumpReleased;
+    public bool runPressed;
+    public bool jumpPressed;
+    public bool jumpReleased;
 
     [Header("Ground Check")]
     public Transform groundCheck;
     public float groundCheckRadius;
     public LayerMask groundLayer;
-    private bool isGrounded;
+    public bool isGrounded;
 
     [Header("Ground Check")]
     public Transform headCheck;
@@ -46,132 +54,59 @@ public class Player : MonoBehaviour
     public Vector2 normalOffset;
 
     private bool isSliding;
-    private bool slideInputLocked;
-    private float slideTimer;
-    private float slideStopTimer;
+    
+    private void Awake()
+    {
+        idleState = new PlayerIdleState(this);
+        jumpState = new PlayerJumpState(this);
+        moveState = new PlayerMoveState(this);
+        crouchState = new PlayerCrouchState(this);
+        slideState = new PlayerSlideState(this);
+    }
 
     private void Start()
     {
-        rb.gravityScale = normalGraviry;
+        rb.gravityScale = normalGravity;
+        ChangeState(idleState);
     }
 
     private void Update()
     {
-        TryStandUp();
-
+        currentState.Update();
         if(!isSliding)
             Flip();
 
-        HandleAnimations();
-        HandleSlide();
+        HandleAnimations();       
     }
 
     private void FixedUpdate()
     {
-        ApplyVariableGravity();
+        currentState.FixedUpdate();        
         CheckGrounded();
-
-        if(!isSliding)
-            HandleMovement();
-
-        HandleJump();
     }
 
-    private void HandleMovement()
+    public void ChangeState(PlayerState newState)
     {
-        float currentSpeed = runPressed ? runSpeed : walkSpeed;
-        float targetSpeed = moveInput.x * currentSpeed;
-        rb.linearVelocity = new Vector2(targetSpeed, rb.linearVelocity.y);
+        if(currentState != null)
+            currentState.Exit();
+
+        currentState = newState;
+        currentState.Enter();
     }
 
-    private void HandleJump()
-    {
-        if(jumpPressed && isGrounded)
-        {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-            jumpPressed = false;
-            jumpReleased = false;
-        }
-        if (jumpReleased)
-        {
-            if(rb.linearVelocity.y > 0)
-            {
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * jumpCutMultiplier);
-            }
-            jumpReleased = false;
-        }
-    }
-
-    private void HandleSlide()
-    {
-        if (isSliding)
-        {
-            slideTimer -= Time.deltaTime;
-            rb.linearVelocity = new Vector2(slideSpeed * facingDirection, rb.linearVelocity.y);
-
-            if(slideTimer <= 0)
-            {
-                isSliding = false;
-                slideStopTimer = slideStopDuration;
-                TryStandUp();
-            }
-        }
-
-        if(slideStopTimer > 0)
-        {
-            slideStopTimer -= Time.deltaTime;
-            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
-        }
-
-        if(isGrounded && runPressed && moveInput.y < - 0.1f && !isSliding && !slideInputLocked)
-        {
-            isSliding = true;
-            slideInputLocked = true;
-            slideTimer = slideDuration;
-            SetColliderSlide();
-        }
-
-        if(slideStopTimer < 0 && moveInput.y >= -0.1f)
-        {
-            slideInputLocked = false;
-        }
-    }
-
-    private void TryStandUp()
-    {
-        if (isSliding)
-        {
-            anim.SetBool("isCrouching", false);
-            return;
-        }
-        
-        bool shouldCrouch = moveInput.y <= - 0.1f || Physics2D.OverlapCircle(headCheck.position, headCheckRadius, groundLayer);
-
-        if (!shouldCrouch)
-        {
-            SetColliderNormal();
-            anim.SetBool("isCrouching", false);
-        }
-        else
-        {
-            SetColliderSlide();
-            anim.SetBool("isCrouching", true);
-        }
-    }
-
-    private void SetColliderNormal()
+    public void SetColliderNormal()
     {
         playerCollider.size = new Vector2(playerCollider.size.x, normalHeight);
         playerCollider.offset = normalOffset;
     }
 
-    private void SetColliderSlide()
+    public void SetColliderSlide()
     {
         playerCollider.size = new Vector2(playerCollider.size.x, slideHeight);
         playerCollider.offset = slideOffset;
     }
 
-    private void ApplyVariableGravity()
+    public void ApplyVariableGravity()
     {
         if(rb.linearVelocity.y < -0.1f)
         {
@@ -183,7 +118,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            rb.gravityScale = normalGraviry;
+            rb.gravityScale = normalGravity;
         }
     }
 
@@ -192,21 +127,15 @@ public class Player : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
     }
 
-    private void HandleAnimations()
+    public bool CheckForCeiling()
     {
-        bool isCrouching = anim.GetBool("isCrouching");
+        return Physics2D.OverlapCircle(headCheck.position, headCheckRadius, groundLayer);
+    }
 
-        anim.SetBool("isJumping", rb.linearVelocity.y > 0.1f);
-        anim.SetBool("isGrounded", isGrounded);
-        anim.SetBool("isSliding", isSliding);
-
+    private void HandleAnimations()
+    {        
+        anim.SetBool("isGrounded", isGrounded);        
         anim.SetFloat("yVelocity", rb.linearVelocity.y);
-
-        bool isMoving = Mathf.Abs(moveInput.x) > 0.1 && isGrounded;
-
-        anim.SetBool("isIdle", !isMoving && isGrounded && !isSliding && !isCrouching);
-        anim.SetBool("isWalk", isMoving && !runPressed && !isSliding && !isCrouching);
-        anim.SetBool("isRunning", isMoving && runPressed && !isSliding && !isCrouching);
     }
 
     private void Flip()
