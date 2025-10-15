@@ -16,8 +16,7 @@ public class PlayerIdleState : PlayerState
 
         if (JumpPressed)
         {
-            //JumpPressed = false;
-            ConsumeJumpInput();
+            JumpPressed = false;            
             player.ChangeState(player.jumpState);
         }
         else if (Mathf.Abs(MoveInput.x) > 0.1f)

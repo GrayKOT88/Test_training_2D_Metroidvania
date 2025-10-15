@@ -15,9 +15,7 @@ public class PlayerMoveState : PlayerState
         base.Update();
 
         if (JumpPressed)
-        {
-            //JumpPressed = false;
-            ConsumeJumpInput();
+        {            
             player.ChangeState(player.jumpState);
         }
 

@@ -23,11 +23,5 @@ public abstract class PlayerState
     public virtual void Exit() { }
 
     public virtual void Update() { }
-    public virtual void FixedUpdate() { }
-
-    protected void ConsumeJumpInput()
-    {
-        JumpPressed = false;
-        JumpReleased = false;
-    }
+    public virtual void FixedUpdate() { }    
 }

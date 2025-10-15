@@ -10,21 +10,16 @@ public class PlayerJumpState : PlayerState
 
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, player.jumpForce);
 
-        //JumpPressed = false;
-        //JumpReleased = false;
-        ConsumeJumpInput();
+        JumpPressed = false;
+        JumpReleased = false;              
     }
 
     public override void Update()
     {
         base.Update();
 
-        if (player.isGrounded && rb.linearVelocity.y <= 0)
-        {
-            //JumpPressed = false;
-            ConsumeJumpInput();
-            player.ChangeState(player.idleState);
-        } 
+        if (player.isGrounded && rb.linearVelocity.y <= 0)            
+            player.ChangeState(player.idleState);         
     }
 
     public override void FixedUpdate()
@@ -47,6 +42,6 @@ public class PlayerJumpState : PlayerState
     public override void Exit()
     {
         base.Exit();
-        anim.SetBool("isJumping", false);
+        anim.SetBool("isJumping", false);                
     }
 }

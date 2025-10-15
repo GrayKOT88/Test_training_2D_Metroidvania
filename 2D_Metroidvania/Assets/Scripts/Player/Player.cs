@@ -11,6 +11,12 @@ public class Player : MonoBehaviour
     public PlayerCrouchState crouchState;
     public PlayerSlideState slideState;
 
+    [Header("Attack Settings")]
+    public int damage;
+    public float attackRadius = 0.5f;
+    public Transform attackPoint;
+    public LayerMask enemyLayer;
+
     [Header("Components")]
     public Rigidbody2D rb;
     public PlayerInput playerInput;
@@ -41,7 +47,7 @@ public class Player : MonoBehaviour
 
     [Header("Ground Check")]
     public Transform headCheck;
-    public float headCheckRadius = 0.2f;
+    public float headCheckRadius = 0.1f;
     
     [Header("Slide Settings")]
     public float slideDuration = 0.6f;
@@ -135,7 +141,7 @@ public class Player : MonoBehaviour
     private void HandleAnimations()
     {        
         anim.SetBool("isGrounded", isGrounded);        
-        anim.SetFloat("yVelocity", rb.linearVelocity.y);
+        anim.SetFloat("yVelocity", rb.linearVelocity.y);        
     }
 
     private void Flip()
@@ -159,6 +165,14 @@ public class Player : MonoBehaviour
     public void OnRun (InputValue value)
     {
         runPressed = value.isPressed;
+    }
+
+    public void OnAttack(InputValue value)
+    {
+        Collider2D enemy = Physics2D.OverlapCircle(attackPoint.position, attackRadius, enemyLayer);
+
+        if(enemy != null)
+            enemy.gameObject.GetComponent<Health>().ChangeHealth(-damage);        
     }
 
     public void OnJump(InputValue value)
