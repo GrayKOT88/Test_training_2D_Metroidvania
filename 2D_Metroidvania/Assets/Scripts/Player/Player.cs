@@ -10,12 +10,10 @@ public class Player : MonoBehaviour
     public PlayerMoveState moveState;
     public PlayerCrouchState crouchState;
     public PlayerSlideState slideState;
+    public PlayerAttackState attackState;
 
-    [Header("Attack Settings")]
-    public int damage;
-    public float attackRadius = 0.5f;
-    public Transform attackPoint;
-    public LayerMask enemyLayer;
+    [Header("Core Components")]
+    public Combat combat;
 
     [Header("Components")]
     public Rigidbody2D rb;
@@ -38,6 +36,7 @@ public class Player : MonoBehaviour
     public bool runPressed;
     public bool jumpPressed;
     public bool jumpReleased;
+    public bool attackPressed;
 
     [Header("Ground Check")]
     public Transform groundCheck;
@@ -68,6 +67,7 @@ public class Player : MonoBehaviour
         moveState = new PlayerMoveState(this);
         crouchState = new PlayerCrouchState(this);
         slideState = new PlayerSlideState(this);
+        attackState = new PlayerAttackState(this);
     }
 
     private void Start()
@@ -157,6 +157,11 @@ public class Player : MonoBehaviour
         transform.localScale = new Vector3(facingDirection, 1, 1);
     }
 
+    public void AttackAnimationFinished()
+    {
+        currentState.AttackAnimationFinished();
+    }
+
     public void OnMove (InputValue value)
     {
         moveInput = value.Get<Vector2>();
@@ -169,10 +174,7 @@ public class Player : MonoBehaviour
 
     public void OnAttack(InputValue value)
     {
-        Collider2D enemy = Physics2D.OverlapCircle(attackPoint.position, attackRadius, enemyLayer);
-
-        if(enemy != null)
-            enemy.gameObject.GetComponent<Health>().ChangeHealth(-damage);        
+        attackPressed = value.isPressed;              
     }
 
     public void OnJump(InputValue value)

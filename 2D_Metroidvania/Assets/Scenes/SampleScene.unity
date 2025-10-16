@@ -6098,6 +6098,7 @@ GameObject:
   - component: {fileID: 1646970439}
   - component: {fileID: 1646970440}
   - component: {fileID: 1646970441}
+  - component: {fileID: 1646970442}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -6197,6 +6198,26 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1646970442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646970438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcba6ff407a7dcf44afc13970f8cc551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 2
+  attackRadius: 0.5
+  attackCooldown: 1.5
+  attackPoint: {fileID: 1290293232}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  player: {fileID: 2023056413}
 --- !u!1 &1813728068
 GameObject:
   m_ObjectHideFlags: 0
@@ -6343,12 +6364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5e28a78c27e6bb46bdd6fc5ea458e31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
-  attackRadius: 0.5
-  attackPoint: {fileID: 1290293232}
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 128
+  combat: {fileID: 1646970442}
   rb: {fileID: 2023056411}
   playerInput: {fileID: 2023056414}
   anim: {fileID: 1646970441}
@@ -6365,6 +6381,7 @@ MonoBehaviour:
   runPressed: 0
   jumpPressed: 0
   jumpReleased: 0
+  attackPressed: 0
   groundCheck: {fileID: 1813728069}
   groundCheckRadius: 0.3
   groundLayer:
