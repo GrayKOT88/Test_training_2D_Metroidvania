@@ -8,6 +8,7 @@ public class Combat : MonoBehaviour
     public float attackCooldown = 1.5f;
     public Transform attackPoint;
     public LayerMask enemyLayer;
+    public Animator hitFX;
 
     public Player player;
 
@@ -27,6 +28,9 @@ public class Combat : MonoBehaviour
         Collider2D enemy = Physics2D.OverlapCircle(attackPoint.position, attackRadius, enemyLayer);
 
         if (enemy != null)
+        {
+            hitFX.Play("HitFX");
             enemy.gameObject.GetComponent<Health>().ChangeHealth(-damage);
+        }
     }
 }

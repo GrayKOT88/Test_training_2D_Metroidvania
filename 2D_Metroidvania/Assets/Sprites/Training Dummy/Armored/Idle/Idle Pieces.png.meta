@@ -1,22 +1,10 @@
 fileFormatVersion: 2
-guid: 6c60e45dbe7ae044f9befdbcd10b602e
+guid: 282612130a5cbc94984d6936287cf253
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3142789919952652274
-    second: HitFX3_0
-  - first:
-      213: 1784603441343214885
-    second: HitFX3_1
-  - first:
-      213: 7129633389934935355
-    second: HitFX3_2
-  - first:
-      213: 6085421840268417224
-    second: HitFX3_3
-  - first:
-      213: -7497016700461931560
-    second: HitFX3_4
+      213: 4723107735738678597
+    second: Idle_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -112,12 +100,34 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HitFX3_0
+      name: Dummy_Head
       rect:
         serializedVersion: 2
-        x: 9
-        y: 26
-        width: 12
+        x: 19
+        y: 24
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54d7a982679db8140800000000000000
+      internalID: 4723107735738678597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dummy_Shield
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 15
+        width: 10
         height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -125,21 +135,21 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e083b8118319264d0800000000000000
-      internalID: -3142789919952652274
+      spriteID: f7e2c54b768335041b130a20185b8b30
+      internalID: 1625726384
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HitFX3_1
+      name: Dummy_Body
       rect:
         serializedVersion: 2
-        x: 24
-        y: 27
-        width: 7
+        x: 21
+        y: 10
+        width: 9
         height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -147,21 +157,21 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 525b33aef5f24c810800000000000000
-      internalID: 1784603441343214885
+      spriteID: 5e76ae82fd8c9054d9aeff220d9ac887
+      internalID: -1538797969
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HitFX3_2
+      name: Dummy_Stend
       rect:
         serializedVersion: 2
-        x: 27
-        y: 23
-        width: 10
+        x: 19
+        y: 0
+        width: 14
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -169,54 +179,32 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b3df5d13bcb81f260800000000000000
-      internalID: 7129633389934935355
+      spriteID: 27f6295f0e9185e4f974a18d8abb77da
+      internalID: 2048238257
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HitFX3_3
+      name: Dummy_Sword
       rect:
         serializedVersion: 2
-        x: 15
-        y: 9
-        width: 7
-        height: 7
+        x: 8
+        y: 19
+        width: 11
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8c85a99fbe2c37450800000000000000
-      internalID: 6085421840268417224
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HitFX3_4
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 8
-        width: 6
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8d3abc5280f35f790800000000000000
-      internalID: -7497016700461931560
+      spriteID: c9e74c4ec4b1bfe4c94b0e2ddf98420f
+      internalID: -1920234895
       vertices: []
       indices: 
       edges: []
@@ -225,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -235,11 +223,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      HitFX3_0: -3142789919952652274
-      HitFX3_1: 1784603441343214885
-      HitFX3_2: 7129633389934935355
-      HitFX3_3: 6085421840268417224
-      HitFX3_4: -7497016700461931560
+      Dummy_Body: -1538797969
+      Dummy_Head: 4723107735738678597
+      Dummy_Shield: 1625726384
+      Dummy_Stend: 2048238257
+      Dummy_Sword: -1920234895
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
