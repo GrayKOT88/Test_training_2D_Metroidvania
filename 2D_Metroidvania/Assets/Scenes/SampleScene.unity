@@ -6218,6 +6218,7 @@ GameObject:
   - component: {fileID: 1646970440}
   - component: {fileID: 1646970441}
   - component: {fileID: 1646970442}
+  - component: {fileID: 1646970443}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -6339,6 +6340,25 @@ MonoBehaviour:
     m_Bits: 128
   hitFX: {fileID: 1212433564}
   player: {fileID: 2023056413}
+--- !u!114 &1646970443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646970438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d54abcd72b2def046a9ea6ca237f7184, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2023056413}
+  spellRange: 5
+  spellCooldown: 0
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  playerRadius: 1.5
 --- !u!1 &1813728068
 GameObject:
   m_ObjectHideFlags: 0
@@ -6486,6 +6506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combat: {fileID: 1646970442}
+  magic: {fileID: 1646970443}
   rb: {fileID: 2023056411}
   playerInput: {fileID: 2023056414}
   anim: {fileID: 1646970441}
@@ -6494,7 +6515,7 @@ MonoBehaviour:
   runSpeed: 8
   jumpForce: 20
   jumpCutMultiplier: 0.5
-  normalGravity: 0
+  normalGravity: 1
   fallGravity: 9
   jumpGravity: 4
   facingDirection: 1
@@ -6503,6 +6524,7 @@ MonoBehaviour:
   jumpPressed: 0
   jumpReleased: 0
   attackPressed: 0
+  spellcastPressed: 0
   groundCheck: {fileID: 1813728069}
   groundCheckRadius: 0.3
   groundLayer:
