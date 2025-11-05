@@ -6359,6 +6359,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   playerRadius: 1.5
+  sparkFXPrefab: {fileID: 1847594076890949009, guid: e0e5ae15769087c4697f88cc415600fd, type: 3}
+  damage: 10
+  damageRadius: 5
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &1813728068
 GameObject:
   m_ObjectHideFlags: 0
