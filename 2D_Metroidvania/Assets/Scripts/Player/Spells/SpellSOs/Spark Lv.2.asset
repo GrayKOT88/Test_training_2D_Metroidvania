@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c6f38231a4f2a04eb74f174f466f256, type: 3}
+  m_Name: Spark Lv.2
+  m_EditorClassIdentifier: 
+  spellName: Spark Lv.2
+  cooldown: 1
+  icon: {fileID: 0}
+  damage: 5
+  radius: 10
+  sparkFXPrefab: {fileID: 1847594076890949009, guid: e0e5ae15769087c4697f88cc415600fd, type: 3}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128

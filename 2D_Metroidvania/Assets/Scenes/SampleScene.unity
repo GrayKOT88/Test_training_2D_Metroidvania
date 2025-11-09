@@ -5842,7 +5842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 10
+  maxHealth: 100
 --- !u!70 &1328974071
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -6353,18 +6353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2023056413}
-  spellRange: 5
-  spellCooldown: 0
-  obstacleLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  playerRadius: 1.5
-  sparkFXPrefab: {fileID: 1847594076890949009, guid: e0e5ae15769087c4697f88cc415600fd, type: 3}
-  damage: 10
-  damageRadius: 5
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 128
+  currentSpell: {fileID: 11400000, guid: acdf6edf7fa145049be092706b628709, type: 2}
 --- !u!1 &1813728068
 GameObject:
   m_ObjectHideFlags: 0
