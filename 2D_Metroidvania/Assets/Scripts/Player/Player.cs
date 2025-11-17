@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     [Header("Core Components")]
     public Combat combat;
     public Magic magic;
+    public Health health;
 
     [Header("Components")]
     public Rigidbody2D rb;

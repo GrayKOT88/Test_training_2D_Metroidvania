@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Spell/SparkSpell")]
+[CreateAssetMenu(menuName = "Spells/Spark Spell")]
 public class SparkSpellSO : SpellSO
 {
     [Header("Spark Settings")]

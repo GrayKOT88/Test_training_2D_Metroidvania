@@ -6219,6 +6219,7 @@ GameObject:
   - component: {fileID: 1646970441}
   - component: {fileID: 1646970442}
   - component: {fileID: 1646970443}
+  - component: {fileID: 1646970444}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -6353,7 +6354,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2023056413}
-  currentSpell: {fileID: 11400000, guid: acdf6edf7fa145049be092706b628709, type: 2}
+  currentSpell: {fileID: 11400000, guid: dfce9535381d3ac4db878335d54407e1, type: 2}
+--- !u!114 &1646970444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646970438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0574d051149a646a3589d20b33c831, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  maxHealth: 1
 --- !u!1 &1813728068
 GameObject:
   m_ObjectHideFlags: 0
@@ -6502,6 +6517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   combat: {fileID: 1646970442}
   magic: {fileID: 1646970443}
+  health: {fileID: 1646970444}
   rb: {fileID: 2023056411}
   playerInput: {fileID: 2023056414}
   anim: {fileID: 1646970441}
