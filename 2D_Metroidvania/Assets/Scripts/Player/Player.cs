@@ -182,6 +182,18 @@ public class Player : MonoBehaviour
         attackPressed = value.isPressed;              
     }
 
+    public void OnLeftShoulder(InputValue value)
+    {
+        if (value.isPressed)
+            magic.PreviousSpell();
+    }
+
+    public void OnRightShoulder(InputValue value)
+    {
+        if (value.isPressed)
+            magic.NextSpell();
+    }
+
     public void OnSpellcast(InputValue value)
     {
         spellcastPressed = value.isPressed;              

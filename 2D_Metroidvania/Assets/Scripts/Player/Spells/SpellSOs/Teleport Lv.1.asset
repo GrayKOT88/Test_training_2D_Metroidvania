@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellName: Teleport Lv.1
   cooldown: 1
-  icon: {fileID: 0}
+  icon: {fileID: 2129263458, guid: 40418c99d76a72f40adaa08ffe83e834, type: 3}
   range: 5
   playerRadius: 1.5
   obstacleLayer:
