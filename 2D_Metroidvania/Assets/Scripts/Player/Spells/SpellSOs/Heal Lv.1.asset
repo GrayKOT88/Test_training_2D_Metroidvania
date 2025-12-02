@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 996f08283ecb06a428452944d9790b10, type: 3}
   m_Name: Heal Lv.1
   m_EditorClassIdentifier: 
-  spellName: Heal Lv.1
-  cooldown: 5
+  itemName: Heal Scroll
   icon: {fileID: 1472556879, guid: 40418c99d76a72f40adaa08ffe83e834, type: 3}
+  cooldown: 5
   healAmount: 10
   healFXFXPrefab: {fileID: 4354971643375866170, guid: 9690124e2ac450f45be96a98dc320348, type: 3}
