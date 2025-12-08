@@ -21,4 +21,16 @@ public class SpellUIManager : MonoBehaviour
         foreach (SpellSlot slot in slots)
             slot.SetHighlight(slot.AssignedSpell == activeSpell);
     }
+
+    public void TriggerCooldown(SpellSO spellSO, float cooldownTime)
+    {
+        foreach (SpellSlot slot in slots)
+        {
+            if(slot.AssignedSpell == spellSO)
+            {
+                slot.TriggerCooldown(cooldownTime);
+                break;
+            }
+        }
+    }
 }
