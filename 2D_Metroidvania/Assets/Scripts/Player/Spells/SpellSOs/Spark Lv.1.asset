@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c6f38231a4f2a04eb74f174f466f256, type: 3}
   m_Name: Spark Lv.1
   m_EditorClassIdentifier: 
-  spellName: Spark Lv.1
-  cooldown: 1
+  itemName: 
   icon: {fileID: -1410607514, guid: 40418c99d76a72f40adaa08ffe83e834, type: 3}
+  itemSprite: {fileID: -5164599079202685034, guid: 8d1deb3fd600f734c878a19e3f707323, type: 3}
+  cooldown: 1
   damage: 3
   radius: 5
   sparkFXPrefab: {fileID: 1847594076890949009, guid: e0e5ae15769087c4697f88cc415600fd, type: 3}

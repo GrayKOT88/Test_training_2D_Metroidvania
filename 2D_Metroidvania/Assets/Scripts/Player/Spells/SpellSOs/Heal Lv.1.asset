@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Heal Scroll
   icon: {fileID: 1472556879, guid: 40418c99d76a72f40adaa08ffe83e834, type: 3}
+  itemSprite: {fileID: -5164599079202685034, guid: 8d1deb3fd600f734c878a19e3f707323, type: 3}
   cooldown: 5
   healAmount: 10
   healFXFXPrefab: {fileID: 4354971643375866170, guid: 9690124e2ac450f45be96a98dc320348, type: 3}

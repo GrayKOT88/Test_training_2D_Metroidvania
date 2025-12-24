@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class SpellSO : CollectiblesSO
+public abstract class SpellSO : CollectibleSO
 {
     [Header("General")]    
     public float cooldown;
