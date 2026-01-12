@@ -18,6 +18,9 @@ public class PlayerJumpState : PlayerState
     {
         base.Update();
 
+        if (JumpPressed && player.isTouchingWall)
+            player.ChangeState(player.wallJumpState);
+
         if (player.isGrounded && rb.linearVelocity.y <= 0.1f)            
             player.ChangeState(player.idleState);         
     }

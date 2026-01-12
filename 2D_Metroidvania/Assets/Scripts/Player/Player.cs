@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public PlayerSlideState slideState;
     public PlayerAttackState attackState;
     public PlayerSpellcastState spellcastState;
+    public PlayerWallJumpState wallJumpState;
 
     [Header("Core Components")]
     public Combat combat;
@@ -48,6 +49,12 @@ public class Player : MonoBehaviour
     public LayerMask groundLayer;
     public bool isGrounded;
 
+    [Header("Wall Check")]
+    public Transform wallCheck;
+    public float wallCheckRadius = 0.15f;
+    public LayerMask wallLayer;
+    public bool isTouchingWall;
+
     [Header("Ground Check")]
     public Transform headCheck;
     public float headCheckRadius = 0.1f;
@@ -73,6 +80,7 @@ public class Player : MonoBehaviour
         slideState = new PlayerSlideState(this);
         attackState = new PlayerAttackState(this);
         spellcastState = new PlayerSpellcastState(this);
+        wallJumpState = new PlayerWallJumpState(this);
     }
 
     private void Start()
@@ -94,6 +102,7 @@ public class Player : MonoBehaviour
     {
         currentState.FixedUpdate();        
         CheckGrounded();
+        CheckForWalls();
     }
 
     public void ChangeState(PlayerState newState)
@@ -136,6 +145,11 @@ public class Player : MonoBehaviour
     private void CheckGrounded()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+    }
+
+    private void CheckForWalls()
+    {
+        isTouchingWall = Physics2D.OverlapCircle(wallCheck.position, wallCheckRadius, wallLayer);
     }
 
     public bool CheckForCeiling()
@@ -203,7 +217,7 @@ public class Player : MonoBehaviour
     {
         if(value.isPressed)
         {
-            if(isGrounded && !CheckForCeiling())
+            if(isGrounded && !CheckForCeiling() || isTouchingWall)
                 jumpPressed = true;
 
             jumpReleased = false;
@@ -218,6 +232,9 @@ public class Player : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(wallCheck.position, wallCheckRadius);
 
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(headCheck.position, headCheckRadius);
