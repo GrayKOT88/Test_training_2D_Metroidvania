@@ -18,7 +18,10 @@ public class PlayerWallJumpState : PlayerState
 
     public override void Update()
     {
-        if (JumpPressed && player.isTouchingWall)
+        if (!player.isGrounded && player.isTouchingWall && MoveInput.x == player.facingDirection && rb.linearVelocity.y < 0)
+            player.ChangeState(player.wallSlideState);
+
+        else if (JumpPressed && player.isTouchingWall)
             player.ChangeState(player.wallJumpState);
 
         else if (player.isGrounded && rb.linearVelocity.y <= 0.1f)

@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public PlayerAttackState attackState;
     public PlayerSpellcastState spellcastState;
     public PlayerWallJumpState wallJumpState;
+    public PlayerWallSlideState wallSlideState;
 
     [Header("Core Components")]
     public Combat combat;
@@ -81,6 +82,7 @@ public class Player : MonoBehaviour
         attackState = new PlayerAttackState(this);
         spellcastState = new PlayerSpellcastState(this);
         wallJumpState = new PlayerWallJumpState(this);
+        wallSlideState = new PlayerWallSlideState(this);
     }
 
     private void Start()
