@@ -18,7 +18,7 @@ public class PlayerJumpState : PlayerState
     {
         base.Update();
 
-        if (player.isGrounded && rb.linearVelocity.y <= 0)            
+        if (player.isGrounded && rb.linearVelocity.y <= 0.1f)            
             player.ChangeState(player.idleState);         
     }
 
