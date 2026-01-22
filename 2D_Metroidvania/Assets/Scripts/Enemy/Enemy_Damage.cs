@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy_Damage : MonoBehaviour
 {
     public Animator anim;
     public Health health;
