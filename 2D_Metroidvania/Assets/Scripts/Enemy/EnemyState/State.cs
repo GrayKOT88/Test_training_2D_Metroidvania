@@ -7,6 +7,7 @@ public abstract class State
     protected virtual string AnimBoolName => null;
     protected EnemyConfig config;
     protected Enemy_Senses senses;
+    protected StateMachine stateMachine;
     protected Enemy enemy;
 
     protected State(Enemy enemy)
@@ -15,6 +16,7 @@ public abstract class State
         anim = enemy.Anim;
         config = enemy.Config;
         senses = enemy.Senses;
+        stateMachine = enemy.StateMachine;
         this.enemy = enemy;
     }
     public virtual void Enter()
