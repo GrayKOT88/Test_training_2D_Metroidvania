@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PatrolState : State
 {
+    protected override string AnimBoolName => "isWalking";
     public PatrolState(Enemy enemy) : base(enemy) { }
 
     public override void FixedUpdate()

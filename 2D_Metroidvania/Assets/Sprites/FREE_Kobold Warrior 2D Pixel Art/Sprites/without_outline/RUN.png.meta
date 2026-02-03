@@ -124,10 +124,10 @@ TextureImporter:
       name: RUN_0
       rect:
         serializedVersion: 2
-        x: 23
-        y: 5
-        width: 57
-        height: 58
+        x: 0
+        y: 0
+        width: 130
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,10 +146,10 @@ TextureImporter:
       name: RUN_1
       rect:
         serializedVersion: 2
-        x: 180
-        y: 5
-        width: 48
-        height: 58
+        x: 148
+        y: 0
+        width: 130
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +168,10 @@ TextureImporter:
       name: RUN_2
       rect:
         serializedVersion: 2
-        x: 320
-        y: 6
-        width: 58
-        height: 59
+        x: 296
+        y: 0
+        width: 130
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,10 +190,10 @@ TextureImporter:
       name: RUN_3
       rect:
         serializedVersion: 2
-        x: 461
-        y: 5
-        width: 66
-        height: 61
+        x: 444
+        y: 0
+        width: 130
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,10 +212,10 @@ TextureImporter:
       name: RUN_4
       rect:
         serializedVersion: 2
-        x: 625
-        y: 5
-        width: 49
-        height: 58
+        x: 592
+        y: 0
+        width: 130
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,10 +234,10 @@ TextureImporter:
       name: RUN_5
       rect:
         serializedVersion: 2
-        x: 767
-        y: 5
-        width: 52
-        height: 59
+        x: 740
+        y: 0
+        width: 130
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,10 +256,10 @@ TextureImporter:
       name: RUN_6
       rect:
         serializedVersion: 2
-        x: 905
-        y: 8
-        width: 62
-        height: 58
+        x: 888
+        y: 0
+        width: 130
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -278,10 +278,10 @@ TextureImporter:
       name: RUN_7
       rect:
         serializedVersion: 2
-        x: 1058
-        y: 5
-        width: 57
-        height: 60
+        x: 1036
+        y: 0
+        width: 130
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -300,7 +300,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a850fd32d82b11f4a9b140c268113fb4
     internalID: 0
     vertices: []
     indices: 

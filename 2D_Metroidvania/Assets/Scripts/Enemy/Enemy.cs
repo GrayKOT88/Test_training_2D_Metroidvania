@@ -4,6 +4,7 @@ public class Enemy : MonoBehaviour
 {
     public int FacingDirection { get; private set; } = 1;
     public Rigidbody2D RB {  get; private set; }
+    public Animator Anim {  get; private set; }
     public EnemyConfig Config;
     public Enemy_Senses Senses {  get; private set; }
     public StateMachine StateMachine { get; private set; }
@@ -11,6 +12,7 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         RB = GetComponent<Rigidbody2D>();
+        Anim = GetComponent<Animator>();
         StateMachine = new StateMachine();
         Senses = GetComponent<Enemy_Senses>();
     }
