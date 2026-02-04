@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 463fac97938cb4640891e0ada3f23a9c, type: 3}
   m_Name: Kobold
   m_EditorClassIdentifier: 
-  turnThreshold: 0.5
+  turnThreshold: 1
   patrolSpeed: 5
   groundCheckDistance: 0.7
   wallCheckDistance: 0.5

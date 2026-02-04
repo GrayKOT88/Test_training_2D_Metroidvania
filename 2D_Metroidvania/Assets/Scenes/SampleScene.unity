@@ -5956,9 +5956,10 @@ GameObject:
   - component: {fileID: 617278838}
   - component: {fileID: 617278837}
   - component: {fileID: 617278836}
+  - component: {fileID: 617278840}
   - component: {fileID: 617278835}
   - component: {fileID: 617278834}
-  - component: {fileID: 617278840}
+  - component: {fileID: 617278841}
   m_Layer: 7
   m_Name: Kobold
   m_TagString: Untagged
@@ -6155,6 +6156,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &617278841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617278833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 565b112b0b700894f90e434772b95631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackPoint: {fileID: 241119139}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -8005,6 +8019,7 @@ GameObject:
   - component: {fileID: 2023056411}
   - component: {fileID: 2023056410}
   - component: {fileID: 2023056413}
+  - component: {fileID: 2023056415}
   m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
@@ -8180,6 +8195,20 @@ MonoBehaviour:
   m_DefaultActionMap: 
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &2023056415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023056409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0574d051149a646a3589d20b33c831, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  maxHealth: 10
 --- !u!1 &2042897457
 GameObject:
   m_ObjectHideFlags: 0

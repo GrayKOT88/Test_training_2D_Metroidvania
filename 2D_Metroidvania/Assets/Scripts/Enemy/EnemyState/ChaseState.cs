@@ -18,6 +18,12 @@ public class ChaseState : State
 
         enemy.FaceTarget(target);
 
+        if (senses.IsInMeleeRange(target))
+        {
+            stateMachine.ChangeState(new MeleeAttackState(enemy));
+            return;
+        }
+
         float distance = Mathf.Abs(target.position.x - enemy.transform.position.x);
         if (distance <= config.turnThreshold)
         {
