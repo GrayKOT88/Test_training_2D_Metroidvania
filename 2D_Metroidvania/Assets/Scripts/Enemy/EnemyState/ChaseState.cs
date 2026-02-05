@@ -18,7 +18,7 @@ public class ChaseState : State
 
         enemy.FaceTarget(target);
 
-        if (senses.IsInMeleeRange(target))
+        if (senses.IsInMeleeRange(target) && combat.CanMeleeAttack())
         {
             stateMachine.ChangeState(new MeleeAttackState(enemy));
             return;

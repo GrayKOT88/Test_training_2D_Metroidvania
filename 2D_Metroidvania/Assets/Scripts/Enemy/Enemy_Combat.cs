@@ -5,6 +5,7 @@ public class Enemy_Combat : MonoBehaviour
     [SerializeField] private Transform attackPoint;
     private EnemyConfig config;
     private Enemy enemy;
+    private float lasrAttackTime;
 
     private void Start()
     {
@@ -12,8 +13,12 @@ public class Enemy_Combat : MonoBehaviour
         config = enemy.Config;
     }
 
+    public bool CanMeleeAttack() => Time.time > lasrAttackTime + config.meleeCooldown;
+
     public void PerformMeleeAttack()
     {
+        lasrAttackTime = Time.time;
+
         Collider2D hit = Physics2D.OverlapCircle(attackPoint.position, config.meleeRange, config.targetLayer);
         if (!hit)
             return;
