@@ -30,7 +30,7 @@ public class Combat : MonoBehaviour
         if (enemy != null)
         {
             hitFX.Play("HitFX");
-            enemy.gameObject.GetComponent<Health>().ChangeHealth(-damage);
+            enemy.gameObject.GetComponent<Health>().ChangeHealth(-damage, transform.position);
         }
     }
 }

@@ -17,7 +17,7 @@ public class SparkSpellSO : SpellSO
             Health health = enemy.GetComponent<Health>();
             if (health != null)
             {
-                health.ChangeHealth(-damage);
+                health.ChangeHealth(-damage, player.transform.position);
             }
 
             if (sparkFXPrefab != null)

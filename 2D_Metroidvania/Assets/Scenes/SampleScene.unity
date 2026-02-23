@@ -5960,6 +5960,8 @@ GameObject:
   - component: {fileID: 617278835}
   - component: {fileID: 617278834}
   - component: {fileID: 617278841}
+  - component: {fileID: 617278842}
+  - component: {fileID: 617278843}
   m_Layer: 7
   m_Name: Kobold
   m_TagString: Untagged
@@ -6169,6 +6171,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackPoint: {fileID: 241119139}
+--- !u!114 &617278842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617278833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0574d051149a646a3589d20b33c831, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 20
+  maxHealth: 20
+--- !u!114 &617278843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617278833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88ef942b4aa3ebb42ac5b79edf79588c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 617278835}
+  health: {fileID: 617278842}
+  deathParts: []
+  spawnForce: 5
+  torque: 5
+  lifetime: 2
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -7552,8 +7586,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 2
-  attackRadius: 0.5
-  attackCooldown: 1.5
+  attackRadius: 1.2
+  attackCooldown: 1
   attackPoint: {fileID: 1290293232}
   enemyLayer:
     serializedVersion: 2

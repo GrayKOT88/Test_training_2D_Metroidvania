@@ -13,6 +13,6 @@ public class HealSpellSO : SpellSO
         GameObject newHealFX = Instantiate(healFXFXPrefab, player.transform.position, Quaternion.identity);
         Destroy(newHealFX, 2);
 
-        player.health.ChangeHealth(healAmount);
+        player.health.ChangeHealth(healAmount, player.transform.position);
     }
 }
