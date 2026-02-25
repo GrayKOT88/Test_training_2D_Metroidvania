@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public PlayerJumpState jumpState;
     public PlayerMoveState moveState;
     public PlayerCrouchState crouchState;
+    public PlayerDamageState damageState;
     public PlayerSlideState slideState;
     public PlayerAttackState attackState;
     public PlayerSpellcastState spellcastState;
@@ -17,6 +18,7 @@ public class Player : MonoBehaviour
 
     [Header("Core Components")]
     public Combat combat;
+    public Damage damage;
     public Magic magic;
     public Health health;
 
@@ -78,6 +80,7 @@ public class Player : MonoBehaviour
         jumpState = new PlayerJumpState(this);
         moveState = new PlayerMoveState(this);
         crouchState = new PlayerCrouchState(this);
+        damageState = new PlayerDamageState(this);
         slideState = new PlayerSlideState(this);
         attackState = new PlayerAttackState(this);
         spellcastState = new PlayerSpellcastState(this);

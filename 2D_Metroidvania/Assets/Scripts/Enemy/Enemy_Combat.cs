@@ -22,7 +22,7 @@ public class Enemy_Combat : MonoBehaviour
         Collider2D hit = Physics2D.OverlapCircle(attackPoint.position, config.meleeRange, config.targetLayer);
         if (!hit)
             return;
-        Health health = hit.GetComponent<Health>();
+        Health health = hit.GetComponentInChildren<Health>();
         if (health != null)
             health.ChangeHealth(-config.meleeDamage, transform.position);
     }
