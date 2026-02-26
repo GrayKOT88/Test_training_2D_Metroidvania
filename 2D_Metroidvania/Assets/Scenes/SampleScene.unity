@@ -6183,8 +6183,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b0574d051149a646a3589d20b33c831, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
-  maxHealth: 20
+  health: 10
+  maxHealth: 10
 --- !u!114 &617278843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6199,7 +6199,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 617278835}
   health: {fileID: 617278842}
-  deathParts: []
+  deathParts:
+  - {fileID: 9085590211125586628, guid: 7595a8d22ab24f047aba467674069f64, type: 3}
+  - {fileID: 231059530732308014, guid: 554e66cfbda8f6445a968ee01c46f9b5, type: 3}
+  - {fileID: 4069393882849603276, guid: cffeb80de94028a4ea61e32a825d74d7, type: 3}
+  - {fileID: 5022861063659187564, guid: 0ea6b17bb8723dc4eb35ac57f18aae5c, type: 3}
+  - {fileID: 337174239056897884, guid: 28c801b3dd44102498ab7b76ab47f4f0, type: 3}
+  - {fileID: 6128523858107281154, guid: e75df362562426e4cbd3cff2ef995095, type: 3}
   spawnForce: 5
   torque: 5
   lifetime: 2
