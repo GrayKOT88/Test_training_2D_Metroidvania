@@ -1,10 +1,12 @@
 using UnityEngine;
 
-public class PlayerDamageState : PlayerState
-{    
+public class PlayerDeathState : PlayerState
+{
     private float knockbackVelocity;
     private float knockbackDuretion;
-    public PlayerDamageState(Player player) : base(player) { }
+    private bool isTimeSlow;
+
+    public PlayerDeathState(Player player) : base(player) { }
 
     public void SetParameters(int knockbackDirection)
     {
@@ -14,8 +16,11 @@ public class PlayerDamageState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        anim.SetBool("isDamaged", true);
+        Time.timeScale = 0.3f;
+        isTimeSlow = true;
+        anim.SetBool("isDead", true);
 
+        //player.groundCheckRadius = 0.2f;
         knockbackDuretion = damage.knockbackDuration;
         player.rb.linearVelocity = new Vector2(knockbackVelocity, player.rb.linearVelocity.y);
     }
@@ -23,16 +28,23 @@ public class PlayerDamageState : PlayerState
     public override void FixedUpdate()
     {
         knockbackDuretion -= Time.fixedDeltaTime;
+
         if (knockbackDuretion <= 0)
         {
-            player.rb.linearVelocity = Vector2.zero;
-            player.ChangeState(player.idleState);
+            if (isTimeSlow)
+            {
+                Time.timeScale = 1f;
+                isTimeSlow = false;
+            }
+            if(player.isGrounded)
+                player.rb.linearVelocity = Vector2.zero;            
         }
     }
 
     public override void Exit()
     {
         base.Exit();
-        anim.SetBool("isDamaged", false);
+        anim.SetBool("isdead", false);
+        //player.groundCheckRadius = 0.35f;
     }
 }

@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public PlayerMoveState moveState;
     public PlayerCrouchState crouchState;
     public PlayerDamageState damageState;
+    public PlayerDeathState deathState;
     public PlayerSlideState slideState;
     public PlayerAttackState attackState;
     public PlayerSpellcastState spellcastState;
@@ -81,6 +82,7 @@ public class Player : MonoBehaviour
         moveState = new PlayerMoveState(this);
         crouchState = new PlayerCrouchState(this);
         damageState = new PlayerDamageState(this);
+        deathState = new PlayerDeathState(this);
         slideState = new PlayerSlideState(this);
         attackState = new PlayerAttackState(this);
         spellcastState = new PlayerSpellcastState(this);
@@ -170,6 +172,8 @@ public class Player : MonoBehaviour
 
     private void Flip()
     {
+        if (currentState == deathState)
+            return;
         if(moveInput.x > 0.1f)
         {
             facingDirection = 1;
