@@ -5,7 +5,7 @@ public class Enemy_Senses : MonoBehaviour
     [SerializeField] private Enemy enemy;
     [SerializeField] private EnemyConfig config;
     [SerializeField] private Transform groundCheck;
-    [SerializeField] private Transform wallCheck;
+    [SerializeField] private Transform[] wallChecks;
     [SerializeField] private Transform attackPoint;
 
     public bool IsAtCliff()
@@ -14,7 +14,14 @@ public class Enemy_Senses : MonoBehaviour
     }
     public bool IsHittingWall()
     {
-        return Physics2D.Raycast(wallCheck.position, Vector2.down, config.wallCheckDistance, config.wallLayer);
+        Vector2 dit = Vector2.right * enemy.FacingDirection;
+        foreach (Transform check in wallChecks)
+        {
+            bool hitWall = Physics2D.Raycast(check.position, dit, config.wallCheckDistance, config.wallLayer);
+            if (hitWall)
+                return true;
+        }
+        return false;
     }
 
     public Transform GetChaseTarget()
@@ -45,7 +52,9 @@ public class Enemy_Senses : MonoBehaviour
 
         //Wall Check
         Gizmos.color = Color.blue;
-        Gizmos.DrawLine(wallCheck.position, wallCheck.position + Vector3.right * enemy.FacingDirection * config.wallCheckDistance);
+        Vector3 dir = Vector3.right * enemy.FacingDirection;
+        foreach (Transform check in wallChecks)
+            Gizmos.DrawLine(check.position, check.position + dir * config.wallCheckDistance);
 
         //Chase Check
         Gizmos.color = Color.red;
