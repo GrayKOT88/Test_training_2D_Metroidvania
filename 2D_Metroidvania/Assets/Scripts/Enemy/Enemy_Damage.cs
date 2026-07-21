@@ -33,6 +33,13 @@ public class Enemy_Damage : MonoBehaviour
 
     private void HandleDeath(Vector2 sourcePoition)
     {
+        if(deathParts.Length == 0)
+        {
+            enemy.Anim.Play("Death");
+            Destroy(gameObject, 1);
+            return;
+        }
+
         foreach (GameObject prefab in deathParts)
         {
             Quaternion rotation = Quaternion.Euler(0,0, Random.Range(0.5f, 1)).normalized;

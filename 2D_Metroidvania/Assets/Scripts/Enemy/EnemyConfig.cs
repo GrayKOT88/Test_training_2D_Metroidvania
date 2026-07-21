@@ -23,6 +23,14 @@ public class EnemyConfig : ScriptableObject
     public int meleeDamage = 2;
     public float meleeCooldown = 1;
 
+    [Header("Ranged Attack")]
+    public float rangedRange = 5;
+    public int rangedDamage = 1;
+    public float rangedCooldown = 2;
+    public GameObject projectilePrefab;
+    public float projectileSpeed = 12;
+    public float projectileLifetime = 3;
+
     [Header("Damaged")]
     public float knockbackDuration = 0.2f;
     public float knockbackForce = 30;

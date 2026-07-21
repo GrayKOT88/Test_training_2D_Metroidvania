@@ -24,6 +24,12 @@ public class ChaseState : State
             return;
         }
 
+        if (senses.IsInShootingRange(target) && combat.CanMeleeAttack())
+        {
+            stateMachine.ChangeState(new RangedAttackState(enemy));
+            return;
+        }
+
         float distance = Mathf.Abs(target.position.x - enemy.transform.position.x);
         if (distance <= config.turnThreshold)
         {

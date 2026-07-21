@@ -44,6 +44,16 @@ public class Enemy_Senses : MonoBehaviour
         float distance = Vector2.Distance(target.position, attackPoint.position);
         return distance <= config.meleeRange;
     }
+
+    public bool IsInShootingRange(Transform target)
+    {
+        if(!target)
+            return false;
+
+        float distance = Vector2.Distance(target.position, attackPoint.position);
+        return distance <= config.rangedRange;
+    }
+
     private void OnDrawGizmosSelected()
     {
         //Ground Check
@@ -63,5 +73,9 @@ public class Enemy_Senses : MonoBehaviour
         //Melee Check
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireSphere(attackPoint.position, config.meleeRange);
+
+        //Ranaged Check
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(attackPoint.position, config.rangedRange);
     }
 }
