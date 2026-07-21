@@ -2,15 +2,34 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private LayerMask targetLayer;
+
+    public float Lifetime { get; set; } = 5;
+    public int Damage { get; set; } = 1;
+
     void Start()
     {
-        
+        Destroy(gameObject, Lifetime);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if(((1 <<  collision.gameObject.layer) & groundLayer) != 0)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        if (((1 << collision.gameObject.layer) & targetLayer) == 0)
+            return;
+
+        Health health = collision.GetComponentInChildren<Health>();
+
+        if (health)
+        {
+            health.ChangeHealth(-Damage, transform.position);
+            Destroy(gameObject);
+        }
     }
 }

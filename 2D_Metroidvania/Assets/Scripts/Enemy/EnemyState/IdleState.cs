@@ -16,6 +16,7 @@ public class IdleState : State
     {
         // 1. Check for terget
         target = senses.GetChaseTarget();
+        enemy.CurrentTarget = target;
 
         if (!target)
         {
@@ -30,20 +31,28 @@ public class IdleState : State
             stateMachine.ChangeState(new MeleeAttackState(enemy));
             return;
         }
-        // 3. Check if we have reached out target
+
+        // 3. Check if we can Ranged Attack
+        if (senses.IsInShootingRange(target) && combat.CanRangedAttack())
+        {
+            stateMachine.ChangeState(new RangedAttackState(enemy));
+            return;
+        }
+
+        // 4. Check if we have reached out target
         float distance = Mathf.Abs(target.position.x - enemy.transform.position.x);
         if (distance <= config.turnThreshold)
         {
             rb.linearVelocity = Vector2.zero;
             return;
         }
-        // 4. Check for obstacles
+        // 5. Check for obstacles
         if (senses.IsHittingWall() || senses.IsAtCliff())
         {
             rb.linearVelocity = Vector2.zero;
             return;
         }
-        // 5. We have a target, we have not reached it, there are no obstacles
+        // 6. We have a target, we have not reached it, there are no obstacles
         stateMachine.ChangeState(new ChaseState(enemy));
     }
 }

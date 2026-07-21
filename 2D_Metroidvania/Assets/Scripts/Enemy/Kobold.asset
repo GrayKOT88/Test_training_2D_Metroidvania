@@ -27,3 +27,14 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 512
+  meleeRange: 1.2
+  meleeDamage: 2
+  meleeCooldown: 1
+  rangedRange: 0
+  rangedDamage: 0
+  rangedCooldown: 0
+  projectilePrefab: {fileID: 0}
+  projectileSpeed: 0
+  projectileLifetime: 0
+  knockbackDuration: 0.2
+  knockbackForce: 30

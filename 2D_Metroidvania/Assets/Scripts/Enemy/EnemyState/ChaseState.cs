@@ -9,6 +9,7 @@ public class ChaseState : State
     public override void FixedUpdate()
     {
         target = senses.GetChaseTarget();
+        enemy.CurrentTarget = target;
 
         if (!target)
         {
@@ -24,7 +25,7 @@ public class ChaseState : State
             return;
         }
 
-        if (senses.IsInShootingRange(target) && combat.CanMeleeAttack())
+        if (senses.IsInShootingRange(target) && combat.CanRangedAttack())
         {
             stateMachine.ChangeState(new RangedAttackState(enemy));
             return;
